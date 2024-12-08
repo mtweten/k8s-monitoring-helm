@@ -6,11 +6,11 @@ metadata:
   name: ko-alloy-metrics
   namespace: default
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: rbac
@@ -603,11 +603,11 @@ kind: ClusterRole
 metadata:
   name: ko-alloy-metrics
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: rbac
@@ -859,11 +859,11 @@ kind: ClusterRoleBinding
 metadata:
   name: ko-alloy-metrics
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: rbac
@@ -905,11 +905,11 @@ kind: Service
 metadata:
   name: ko-alloy-metrics-cluster
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: networking
@@ -938,11 +938,11 @@ kind: Service
 metadata:
   name: ko-alloy-metrics
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
     app.kubernetes.io/component: networking
@@ -1367,11 +1367,11 @@ kind: StatefulSet
 metadata:
   name: ko-alloy-metrics
   labels:
-    helm.sh/chart: alloy-metrics-0.9.1
+    helm.sh/chart: alloy-metrics-0.10.1
     app.kubernetes.io/name: alloy-metrics
     app.kubernetes.io/instance: ko
     
-    app.kubernetes.io/version: "v1.4.2"
+    app.kubernetes.io/version: "v1.5.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: alloy
 spec:
@@ -1395,7 +1395,7 @@ spec:
       serviceAccountName: ko-alloy-metrics
       containers:
         - name: alloy
-          image: docker.io/grafana/alloy:v1.4.2
+          image: docker.io/grafana/alloy:v1.5.1
           imagePullPolicy: IfNotPresent
           args:
             - run
@@ -1405,7 +1405,7 @@ spec:
             - --server.http.ui-path-prefix=/
             - --cluster.enabled=true
             - --cluster.join-addresses=ko-alloy-metrics-cluster
-            - --cluster.name="alloy-metrics"
+            - --cluster.name=alloy-metrics
             - --stability.level=generally-available
           env:
             - name: ALLOY_DEPLOY_MODE
